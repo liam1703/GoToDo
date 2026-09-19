@@ -39,3 +39,22 @@ func (todos *Todos) delete(index int) error {
 	*todos = slices.Delete(*todos, index, index+1) // Delete can be used on slices 
 	return nil
 }
+
+func (todos *Todos) toggle(index int) error {
+	//check index is valid first!
+	if err := todos.validateIndex(index); err != nil {
+		return err
+	}
+
+	todo := &(*todos)[index] //grab todo
+	todo.Completed = !todo.Completed //flip complete
+
+	if todo.Completed {
+		now := time.Now()
+		todo.CompletedAt = &now
+	} else {
+		todo.CompletedAt = nil
+	}
+
+	return nil
+}
