@@ -1,2 +1,3 @@
 # GoToDo
-CLI Todo list
+
+A CLI todo list written in Go programming language. 
