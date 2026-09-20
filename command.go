@@ -33,7 +33,7 @@ func (cf *CmdFlags) Execute(todos *Todos) error {
 	case cf.List:
 		todos.print()
 	case cf.Add != "":
-		todos.add(cf.Add)
+		todos.Add(cf.Add)
 	case cf.Del != -1:
 		return todos.delete(cf.Del)
 	case cf.Edit != "":
